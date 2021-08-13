@@ -75,7 +75,7 @@ class Signalement(db.Model):
     )
     anonyme = Column(
         db.Boolean(),
-        info={"label": _("Je souhaite rester anonyme pour faire ce signalement")}
+        info={"label": _("Je souhaite rester anonyme pour faire ce signalement. Signaler anonymement ne peut pas mener à des sanctions du BDE cependant cela peut nous permettre de surveiller, lors de nos évènements, que la personne signalé n'ai pas de comportement problématiques/dangereux.")}
     )
     # Décrire
     preocupation = Column(
@@ -115,7 +115,7 @@ class Signalement(db.Model):
     )
     fichier = Column(
         db.String(255),
-        info={"label": _("Avez-vous des fichiers en lien avec votre signalement à nous transmettre ?")},
+        info={"label": _("Avez-vous des fichiers en lien avec votre signalement à nous transmettre ? Des screen de messages, des photos, vidéos, enregistrements...")},
         nullable=True
     )
     recontact_choices = [
@@ -124,11 +124,11 @@ class Signalement(db.Model):
     ]
     recontact = Column(
         ChoiceType(recontact_choices),
-        info={"label": _("Souhaitez-vous être recontacté par la référence écoute ?*")}
+        info={"label": _("Souhaitez-vous être recontacté.e ?* Cela nous permet de prendre votre avis en compte quand à la gestion de la situation, mais ce n'est en aucun cas obligatoire.")}
     )
     modalite = Column(
         db.Text(),
-        info={"label": _("Si vous avez répondu « oui » à la question précédente n’hésitez pas à nous préciser les modalités de prise de contact privilégié et les horaires souhaités.")},
+        info={"label": _("Si vous avez répondu « oui » à la question précédente n’hésitez pas à nous préciser les modalités de prise de contact. Souhaitez vous une personne du BDE, du CVE ou de l'admin en particulier ? Lors d'un appel, en vrai, par message, par mail ? Si rien n'est précisé il s'agit par défault de Nicolas Paquet ou de Claire Brossier par message.")},
         nullable=True
     )
     numero_suivi = Column(
